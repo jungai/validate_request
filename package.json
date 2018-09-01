@@ -1,0 +1,66 @@
+{
+  "name": "@ag1/validate_request",
+  "version": "0.1.0",
+  "description": "validate request middleware for express",
+  "main": "index.js",
+  "author": "agent one co., ltd.",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "compile": "tsc",
+    "test": "jest",
+    "lint": "tslint -p tsconfig.json -t stylish",
+    "prettier": "yarn prettier-config && yarn prettier-ts",
+    "prettier-config": "prettier --no-config --write './*.{json,yml}'",
+    "prettier-ts": "prettier --write './**/*.ts'"
+  },
+  "peerDependencies": {
+    "boom": "^7.2.0",
+    "express": "^4.16.3",
+    "joi": "^13.6.0"
+  },
+  "devDependencies": {
+    "@types/boom": "^7.2.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.1",
+    "@types/joi": "^13.4.4",
+    "boom": "^7.2.0",
+    "express": "^4.16.3",
+    "jest": "^23.5.0",
+    "joi": "^13.6.0",
+    "prettier": "^1.14.2",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-microsoft-contrib": "^5.2.1",
+    "typescript": "^3.0.3"
+  },
+  "keywords": [
+    "express",
+    "middleware",
+    "validate",
+    "joi",
+    "typescript"
+  ],
+  "repository": {
+    "url": "https://github.com/AgentOneCoLtd/validate_request.git",
+    "type": "git"
+  },
+  "readmeFilename": "readme.md",
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.spec.+(ts)"
+    ]
+  }
+}
