@@ -2,18 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const boom_1 = require("boom");
 const Joi = require("joi");
-function validate(prop, schemaMap) {
-    const schema = Joi.object()
+function getSchema(schemaMap) {
+    return Joi.object()
         .keys(schemaMap)
         .required();
+}
+exports.getSchema = getSchema;
+function isError(val) {
+    return val instanceof Error;
+}
+exports.isError = isError;
+function validate(prop, schemaMap) {
+    const schema = getSchema(schemaMap);
     return (req, _res, next) => {
         const { error } = Joi.validate(req[prop], schema);
-        if (!(error instanceof Error)) {
+        if (!isError(error)) {
             next();
+            return;
         }
-        else {
-            next(boom_1.badData(error.name, error.details));
-        }
+        next(boom_1.badData(error.name, error.details));
     };
 }
 exports.validate = validate;
