@@ -1,7 +1,7 @@
 // tslint:disable:no-unsafe-any
 
 import { isBoom } from 'boom';
-import * as Joi from 'joi';
+import Joi from 'joi';
 import { validate } from './index';
 
 it('should fail, call next(error), if prop is not found (empty schemaMap)', () => {

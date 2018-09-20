@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const boom_1 = require("boom");
-const Joi = require("joi");
+const joi_1 = __importDefault(require("joi"));
 function getSchema(schemaMap) {
-    return Joi.object()
+    return joi_1.default.object()
         .keys(schemaMap)
         .required();
 }
@@ -15,7 +18,7 @@ exports.isError = isError;
 function validate(prop, schemaMap) {
     const schema = getSchema(schemaMap);
     return (req, _res, next) => {
-        const { error } = Joi.validate(req[prop], schema);
+        const { error } = joi_1.default.validate(req[prop], schema);
         if (!isError(error)) {
             next();
             return;

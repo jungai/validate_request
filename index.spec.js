@@ -1,8 +1,11 @@
 "use strict";
 // tslint:disable:no-unsafe-any
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const boom_1 = require("boom");
-const Joi = require("joi");
+const joi_1 = __importDefault(require("joi"));
 const index_1 = require("./index");
 it('should fail, call next(error), if prop is not found (empty schemaMap)', () => {
     const schemaMap = {};
@@ -42,7 +45,7 @@ it('should pass, call next(), if prop is empty object (empty schemaMap)', () => 
 });
 it('should fail, call next(error), if prop condition not match (invalid type)', () => {
     const schemaMap = {
-        a: Joi.string(),
+        a: joi_1.default.string(),
     };
     const middleware = index_1.validate('body', schemaMap);
     const mockReq = { body: { a: 1 } };
@@ -56,7 +59,7 @@ it('should fail, call next(error), if prop condition not match (invalid type)', 
 });
 it('should fail, call next(error), if prop condition not match (undefined)', () => {
     const schemaMap = {
-        a: Joi.string().required(),
+        a: joi_1.default.string().required(),
     };
     const middleware = index_1.validate('body', schemaMap);
     const mockReq = { body: {} };
@@ -70,7 +73,7 @@ it('should fail, call next(error), if prop condition not match (undefined)', () 
 });
 it('should pass, call next(), if prop conditon match', () => {
     const schemaMap = {
-        a: Joi.string().required(),
+        a: joi_1.default.string().required(),
     };
     const middleware = index_1.validate('query', schemaMap);
     const mockReq = { query: { a: 'a' } };

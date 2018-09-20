@@ -1,6 +1,6 @@
 {
   "name": "@ag1/validate_request",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "validate request middleware for express",
   "main": "index.js",
   "author": "agent one co., ltd.",
@@ -29,7 +29,7 @@
     "jest": "^23.6.0",
     "joi": "^13.6.0",
     "prettier": "^1.14.2",
-    "ts-jest": "^23.1.4",
+    "ts-jest": "^23.10.0",
     "tslint": "^5.11.0",
     "tslint-microsoft-contrib": "^5.2.1",
     "typescript": "^3.0.3"

@@ -1,6 +1,6 @@
 import { badData } from 'boom';
 import { RequestHandler } from 'express';
-import * as Joi from 'joi';
+import Joi from 'joi';
 
 export function getSchema(schemaMap: Joi.SchemaMap) {
     return Joi.object()
