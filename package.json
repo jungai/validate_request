@@ -14,7 +14,7 @@
     "tsc:lib-module": "tsc -b tsconfig-module.json",
     "compile": "yarn tsc:lib && yarn tsc:lib-module",
     "lint:onlyts": "tslint -c tslint.json -p tsconfig.json -t stylish",
-    "lint:spects": "tslint -c tslint-spects.json -p tsconfig-spects.json -t stylish",
+    "lint:spects": "tslint -c tslint-spects.json -p tsconfig-spects.json -t stylish -e \"**/!(*.spec).ts\"",
     "lint": "yarn lint:onlyts --fix && yarn lint:spects --fix",
     "prettier:config": "prettier --no-config --write \"./*.{json,yml}\"",
     "prettier:ts": "prettier --write \"./src/**/*.ts\"",
