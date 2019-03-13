@@ -1,22 +1,23 @@
 import { badData } from 'boom';
 import { RequestHandler } from 'express';
-import Joi from 'joi';
+import { object as joiObject, SchemaMap, validate as joiValidate } from 'joi';
 
-export function getSchema(schemaMap: Joi.SchemaMap) {
-    return Joi.object()
+export function getSchema(schemaMap: SchemaMap) {
+    return joiObject()
         .keys(schemaMap)
         .required();
 }
 
+// tslint:disable-next-line no-any
 export function isError(val: any): val is Error {
     return val instanceof Error;
 }
 
-export function validate(prop: 'body' | 'params' | 'query', schemaMap: Joi.SchemaMap): RequestHandler {
+export function validate(prop: 'body' | 'params' | 'query', schemaMap: SchemaMap): RequestHandler {
     const schema = getSchema(schemaMap);
 
     return (req, _res, next) => {
-        const { error } = Joi.validate(req[prop], schema);
+        const { error } = joiValidate(req[prop], schema);
 
         if (!isError(error)) {
             next();
@@ -28,14 +29,14 @@ export function validate(prop: 'body' | 'params' | 'query', schemaMap: Joi.Schem
     };
 }
 
-export function body(schemaMap: Joi.SchemaMap) {
+export function body(schemaMap: SchemaMap) {
     return validate('body', schemaMap);
 }
 
-export function params(schemaMap: Joi.SchemaMap) {
+export function params(schemaMap: SchemaMap) {
     return validate('params', schemaMap);
 }
 
-export function query(schemaMap: Joi.SchemaMap) {
+export function query(schemaMap: SchemaMap) {
     return validate('query', schemaMap);
 }
