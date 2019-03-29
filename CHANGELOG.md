@@ -1,3 +1,7 @@
+## v1.1.0
+
+* Accept getSchema(): ObjectSchema as additional param
+
 ## v1.0.0
 
 * Update project structure
