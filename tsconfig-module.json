@@ -1,16 +1,13 @@
 {
-  "compileOnSave": false,
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "ESNext",
-    "moduleResolution": "node",
     "target": "ESNext",
-    "lib": ["ESNext"],
+    "lib": ["esnext"],
     "outDir": "./lib-module",
     "declaration": false,
     "declarationMap": false,
-    "sourceMap": true,
-    "strict": true
+    "sourceMap": true
   },
-  "include": ["./src/**/*.ts"],
   "exclude": ["**/*.spec.ts"]
 }

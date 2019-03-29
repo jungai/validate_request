@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-microsoft-contrib"],
+  "extends": ["tslint-microsoft-contrib/recommended"],
   "rules": {
     "newline-per-chained-call": false,
     "no-any": false,
