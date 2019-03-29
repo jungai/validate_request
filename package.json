@@ -1,6 +1,6 @@
 {
   "name": "@ag1/validate_request",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "validate request middleware for express",
   "main": "./lib/index.js",
   "jsnext:main": "./lib-module/index.js",
@@ -10,11 +10,12 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "tsc:lib": "tsc -b tsconfig.json",
+    "tsc:spects": "tsc -b tsconfig-spects.json",
+    "tsc:onlyts": "tsc -b tsconfig-onlyts.json",
     "tsc:lib-module": "tsc -b tsconfig-module.json",
-    "compile": "yarn tsc:lib && yarn tsc:lib-module",
-    "lint:onlyts": "tslint -c tslint.json -p tsconfig.json -t stylish",
+    "compile": "yarn tsc:onlyts && yarn tsc:spects && yarn tsc:lib-module",
     "lint:spects": "tslint -c tslint-spects.json -p tsconfig-spects.json -t stylish -e \"**/!(*.spec).ts\"",
+    "lint:onlyts": "tslint -c tslint-onlyts.json -p tsconfig-onlyts.json -t stylish",
     "lint": "yarn lint:onlyts --fix && yarn lint:spects --fix",
     "prettier:config": "prettier --no-config --write \"./*.{json,yml}\"",
     "prettier:ts": "prettier --write \"./src/**/*.ts\"",
@@ -40,7 +41,7 @@
     "ts-jest": "^24.0.0",
     "tslint": "^5.14.0",
     "tslint-microsoft-contrib": "^6.1.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.4000"
   },
   "keywords": [
     "express",
