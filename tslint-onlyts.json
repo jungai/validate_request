@@ -1,7 +1,0 @@
-{
-  "extends": ["tslint-microsoft-contrib/recommended"],
-  "rules": {
-    "typedef": false,
-    "variable-name": [true, "allow-leading-underscore"]
-  }
-}

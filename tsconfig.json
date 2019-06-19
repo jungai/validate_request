@@ -5,6 +5,8 @@
     "moduleResolution": "node",
     "target": "ES6",
     "lib": ["es6"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "strict": true
   },
   "include": ["./src/**/*.ts"]

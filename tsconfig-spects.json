@@ -1,8 +1,6 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["esnext"],
     "noEmit": true
   },
   "include": ["./src/**/*.spec.ts"],
