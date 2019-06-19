@@ -1,6 +1,6 @@
-import { badData } from 'boom';
+import { badData } from '@hapi/boom';
+import { object as joiObject, SchemaMap, validate as joiValidate, ObjectSchema } from '@hapi/joi';
 import { RequestHandler } from 'express';
-import { object as joiObject, SchemaMap, validate as joiValidate, ObjectSchema } from 'joi';
 
 export type GetSchemaFunction = (schemaMap: SchemaMap) => ObjectSchema;
 
@@ -10,7 +10,7 @@ export function getDefaultSchema(schemaMap: SchemaMap): ObjectSchema {
         .required();
 }
 
-// tslint:disable-next-line no-any
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export function isError(val: any): val is Error {
     return val instanceof Error;
 }
