@@ -1,5 +1,5 @@
+import { SchemaMap, ObjectSchema } from '@hapi/joi';
 import { RequestHandler } from 'express';
-import { SchemaMap, ObjectSchema } from 'joi';
 export declare type GetSchemaFunction = (schemaMap: SchemaMap) => ObjectSchema;
 export declare function getDefaultSchema(schemaMap: SchemaMap): ObjectSchema;
 export declare function isError(val: any): val is Error;

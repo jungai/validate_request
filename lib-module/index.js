@@ -1,11 +1,11 @@
-import { badData } from 'boom';
-import { object as joiObject, validate as joiValidate } from 'joi';
+import { badData } from '@hapi/boom';
+import { object as joiObject, validate as joiValidate } from '@hapi/joi';
 export function getDefaultSchema(schemaMap) {
     return joiObject()
         .keys(schemaMap)
         .required();
 }
-// tslint:disable-next-line no-any
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export function isError(val) {
     return val instanceof Error;
 }
