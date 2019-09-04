@@ -1,3 +1,6 @@
+## v2.1.0
+* Update build process
+
 ## V2.0.0 (Breaking Change)
 * boom and joi are moved into @hapi/
 
