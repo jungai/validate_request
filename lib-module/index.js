@@ -1,7 +1,7 @@
 import { badData } from '@hapi/boom';
-import { object as joiObject, validate as joiValidate } from '@hapi/joi';
+import * as Joi from '@hapi/joi';
 export function getDefaultSchema(schemaMap) {
-    return joiObject()
+    return Joi.object()
         .keys(schemaMap)
         .required();
 }
@@ -12,7 +12,7 @@ export function isError(val) {
 export function validate(prop, schemaMap, getSchema = getDefaultSchema) {
     const schema = getSchema(schemaMap);
     return (req, _res, next) => {
-        const { error } = joiValidate(req[prop], schema);
+        const { error } = Joi.validate(req[prop], schema);
         if (!isError(error)) {
             next();
             return;

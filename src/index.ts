@@ -1,11 +1,11 @@
 import { badData } from '@hapi/boom';
-import { object as joiObject, SchemaMap, validate as joiValidate, ObjectSchema } from '@hapi/joi';
+import * as Joi from '@hapi/joi';
 import { RequestHandler } from 'express';
 
-export type GetSchemaFunction = (schemaMap: SchemaMap) => ObjectSchema;
+export type GetSchemaFunction = (schemaMap: Joi.SchemaMap) => Joi.ObjectSchema;
 
-export function getDefaultSchema(schemaMap: SchemaMap): ObjectSchema {
-    return joiObject()
+export function getDefaultSchema(schemaMap: Joi.SchemaMap): Joi.ObjectSchema {
+    return Joi.object()
         .keys(schemaMap)
         .required();
 }
@@ -17,13 +17,13 @@ export function isError(val: any): val is Error {
 
 export function validate(
     prop: 'body' | 'params' | 'query',
-    schemaMap: SchemaMap,
+    schemaMap: Joi.SchemaMap,
     getSchema: GetSchemaFunction = getDefaultSchema,
 ): RequestHandler {
     const schema = getSchema(schemaMap);
 
-    return (req, _res, next) => {
-        const { error } = joiValidate(req[prop], schema);
+    return (req, _res, next): void => {
+        const { error } = Joi.validate(req[prop], schema);
 
         if (!isError(error)) {
             next();
@@ -35,14 +35,14 @@ export function validate(
     };
 }
 
-export function body(schemaMap: SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema) {
+export function body(schemaMap: Joi.SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema): RequestHandler {
     return validate('body', schemaMap, getSchema);
 }
 
-export function params(schemaMap: SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema) {
+export function params(schemaMap: Joi.SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema): RequestHandler {
     return validate('params', schemaMap, getSchema);
 }
 
-export function query(schemaMap: SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema) {
+export function query(schemaMap: Joi.SchemaMap, getSchema: GetSchemaFunction = getDefaultSchema): RequestHandler {
     return validate('query', schemaMap, getSchema);
 }
