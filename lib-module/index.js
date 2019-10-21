@@ -12,7 +12,7 @@ export function isError(val) {
 export function validate(prop, schemaMap, getSchema = getDefaultSchema) {
     const schema = getSchema(schemaMap);
     return (req, _res, next) => {
-        const { error } = Joi.validate(req[prop], schema);
+        const { error } = schema.validate(req[prop]);
         if (!isError(error)) {
             next();
             return;
