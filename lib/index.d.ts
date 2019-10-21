@@ -1,3 +1,4 @@
+/// <reference types="hapi__joi" />
 import * as Joi from '@hapi/joi';
 import { RequestHandler } from 'express';
 export declare type GetSchemaFunction = (schemaMap: Joi.SchemaMap) => Joi.ObjectSchema;
