@@ -1,11 +1,14 @@
+## V3.0.0 (Breaking Change)
+* `Joi.valdate` is removed. Use `schema.validate` instead
+
 ## v2.1.0
 * Update build process
 
 ## V2.0.0 (Breaking Change)
-* boom and joi are moved into @hapi/
+* `boom` and `joi` are moved into `@hapi/*`
 
 ## v1.1.0
-* Accept getSchema(): ObjectSchema as additional param
+* Accept `getSchema(): ObjectSchema` as additional param
 
 ## v1.0.0
 * Update project structure
