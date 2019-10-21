@@ -23,7 +23,7 @@ export function validate(
     const schema = getSchema(schemaMap);
 
     return (req, _res, next): void => {
-        const { error } = Joi.validate(req[prop], schema);
+        const { error } = schema.validate(req[prop]);
 
         if (!isError(error)) {
             next();
