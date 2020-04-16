@@ -1,6 +1,7 @@
 ## 4.0.0 (Breaking Change)
 * upgrade libs
 * use breaking change `@hapi/joi` and `@hapi/boom`
+* change dev node version from 10 to 12
 
 ## 3.0.0 (Breaking Change)
 * `Joi.valdate` is removed. Use `schema.validate` instead
