@@ -1,9 +1,7 @@
 import { badData } from '@hapi/boom';
 import * as Joi from '@hapi/joi';
 export function getDefaultSchema(schemaMap) {
-    return Joi.object()
-        .keys(schemaMap)
-        .required();
+    return Joi.object().keys(schemaMap).required();
 }
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 export function isError(val) {
