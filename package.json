@@ -1,6 +1,6 @@
 {
   "name": "@ag1/validate_request",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "validate request middleware for express",
   "main": "./lib/index.js",
   "jsnext:main": "./lib-module/index.js",
