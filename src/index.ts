@@ -5,9 +5,7 @@ import { RequestHandler } from 'express';
 export type GetSchemaFunction = (schemaMap: Joi.SchemaMap) => Joi.ObjectSchema;
 
 export function getDefaultSchema(schemaMap: Joi.SchemaMap): Joi.ObjectSchema {
-    return Joi.object()
-        .keys(schemaMap)
-        .required();
+    return Joi.object().keys(schemaMap).required();
 }
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
